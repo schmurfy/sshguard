@@ -78,7 +78,9 @@
      PUREFTPD_LOGINERR_PREF = 294,
      PUREFTPD_LOGINERR_SUFF = 295,
      VSFTPD_LOGINERR_PREF = 296,
-     VSFTPD_LOGINERR_SUFF = 297
+     VSFTPD_LOGINERR_SUFF = 297,
+     ASTERISK_REGISTERERR_PREF = 298,
+     ASTERISK_REGISTERERR_SUFF = 299
    };
 #endif
 /* Tokens.  */
@@ -122,6 +124,8 @@
 #define PUREFTPD_LOGINERR_SUFF 295
 #define VSFTPD_LOGINERR_PREF 296
 #define VSFTPD_LOGINERR_SUFF 297
+#define ASTERISK_REGISTERERR_PREF 298
+#define ASTERISK_REGISTERERR_SUFF 299
 
 
 
@@ -134,7 +138,7 @@ typedef union YYSTYPE
     int num;
 }
 /* Line 1529 of yacc.c.  */
-#line 138 "attack_parser.h"
+#line 142 "attack_parser.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

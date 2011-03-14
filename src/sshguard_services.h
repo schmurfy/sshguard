@@ -62,4 +62,7 @@
 
 /* vsftpd */
 #define SERVICES_VSFTPD                 330
+
+/* asterisk */
+#define SERVICES_ASTERISK               340
 #endif

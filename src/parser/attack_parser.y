@@ -111,6 +111,8 @@ static struct {
 %token PUREFTPD_LOGINERR_PREF PUREFTPD_LOGINERR_SUFF
 /* vsftpd */
 %token VSFTPD_LOGINERR_PREF VSFTPD_LOGINERR_SUFF
+/* asterisk */
+%token ASTERISK_REGISTERERR_PREF ASTERISK_REGISTERERR_SUFF
 
 /* msg_multiple returns the multiplicity degree of its recognized message */
 %type <num> msg_multiple
@@ -177,6 +179,7 @@ msg_single:
     | proftpdmsg        {   parsed_attack.service = SERVICES_PROFTPD; }
     | pureftpdmsg       {   parsed_attack.service = SERVICES_PUREFTPD; }
     | vsftpdmsg         {   parsed_attack.service = SERVICES_VSFTPD; }
+    | asteriskdmsg      {   parsed_attack.service = SERVICES_ASTERISK; }
     ;
 
 msg_multiple:
@@ -339,6 +342,10 @@ vsftpdmsg:
     VSFTPD_LOGINERR_PREF addr VSFTPD_LOGINERR_SUFF
     ;
 
+/* asterisk */
+asteriskdmsg:
+    ASTERISK_REGISTERERR_PREF addr ASTERISK_REGISTERERR_SUFF
+    ;
 %%
 
 static void yyerror(int source_id, const char *msg) { /* do nothing */ }
