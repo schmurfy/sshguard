@@ -1,0 +1,8 @@
+.deps/
+*.o
+*.a
+src/config.h
+src/sshguard
+config.log
+config.status
+Makefile
