@@ -198,12 +198,13 @@ IPV4MAPPED6 ((:(:0{1,4}){0,4}|0{1,4}:(:0{1,4}){1,3}|(0{1,4}:){2}(0{1,4}:0{0,4}:0
 .+"FAIL LOGIN: Client \""                                       { BEGIN(vsftpd_loginerr); return VSFTPD_LOGINERR_PREF; }
 <vsftpd_loginerr>"\""                                           { BEGIN(INITIAL); return VSFTPD_LOGINERR_SUFF; }
 
- /*asterisk[2905]: NOTICE[2915]: chan_sip.c:19353 in handle_request_register: Registration from '"trunk" <sip:trunk@91.121.52.140>' failed for '178.162.239.174' - Peer is not supposed to register*/
- /*asterisk[2905]: ERROR[2915]: chan_sip.c:11445 in register_verify: Peer 'trunk' is trying to register, but not configured as host=dynamic*/  
-
  /* asterisk */
+ 
+  /*asterisk[2905]: NOTICE[2915]: chan_sip.c:19353 in handle_request_register: Registration from '"trunk" <sip:trunk@91.121.52.140>' failed for '178.162.239.174' - Peer is not supposed to register*/
+   /*asterisk[5337]: NOTICE[5419]: chan_sip.c:19381 in handle_request_register: Registration from '"100"<sip:100@91.121.52.140>' failed for '91.121.181.99' - No matching peer found*/
 "asterisk["[^\[]+"]:".+"chan_sip.c".+"Registration from '".+"' failed for '"  { BEGIN(asterisk_registererr); return ASTERISK_REGISTERERR_PREF; }
-<asterisk_registererr>"' - Peer is not supposed to register"                  { BEGIN(INITIAL); return ASTERISK_REGISTERERR_SUFF; }
+<asterisk_registererr>"' - (Peer is not supposed to register|No matching peer found)"                  { BEGIN(INITIAL); return ASTERISK_REGISTERERR_SUFF; }
+
 
  /**         COMMON-USE TOKENS       do not touch these          **/
  /* an IPv4 address */
